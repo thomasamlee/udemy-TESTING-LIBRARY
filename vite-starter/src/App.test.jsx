@@ -1,8 +1,22 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import App from "./App";
 
-test("App contains correct heading", () => {
+test("button click flow", () => {
+  // render app
   render(<App />);
-  const headingElement = screen.getByText(/learn react/i);
-  expect(headingElement).toBeInTheDocument();
+
+  // find button
+  const buttonElement = screen.getByRole("button", { name: /blue/i });
+
+  // check initial color
+  expect(buttonElement).toHaveClass("red");
+
+  // click button
+  fireEvent.click(buttonElement);
+
+  // check text
+  expect(buttonElement).toHaveTextContent(/red/i);
+
+  // check color
+  expect(buttonElement).toHaveClass("blue");
 });
