@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ES2021",
     "jsx": "preserve",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ES2020",
+    "moduleResolution": "Bundler",
     "types": ["vitest/globals"],
     "allowJs": true,
     "checkJs": true,
