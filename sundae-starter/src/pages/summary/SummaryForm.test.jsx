@@ -1,4 +1,5 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import SummaryForm from "./SummaryForm";
 
 test("Initial conditions", () => {
@@ -15,7 +16,8 @@ test("Initial conditions", () => {
   expect(confirmButton).toBeDisabled();
 });
 
-test("checking checkbox enables button", () => {
+test("checking checkbox enables button", async () => {
+  const user = userEvent.setup();
   render(<SummaryForm />);
 
   const checkbox = screen.getByRole("checkbox", {
@@ -26,9 +28,15 @@ test("checking checkbox enables button", () => {
     name: /confirm order/i,
   });
 
-  fireEvent.click(checkbox);
+  await user.click(checkbox);
   expect(confirmButton).toBeEnabled();
 
-  fireEvent.click(checkbox);
+  await user.click(checkbox);
   expect(confirmButton).toBeDisabled();
+});
+
+test("popover responds to hover", async () => {
+  const user = userEvent.setup();
+
+  // popover starts hidden
 });
