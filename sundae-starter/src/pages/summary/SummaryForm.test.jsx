@@ -37,6 +37,22 @@ test("checking checkbox enables button", async () => {
 
 test("popover responds to hover", async () => {
   const user = userEvent.setup();
+  render(<SummaryForm />);
 
   // popover starts hidden
+  const nullPopover = screen.queryByText(
+    /no ice cream will actually be delivered/i
+  );
+  expect(nullPopover).not.toBeInTheDocument();
+
+  // popover appears on mouseover of checkbox label
+  const termsAndConditions = screen.getByText(/terms and conditions/i);
+  await user.hover(termsAndConditions);
+
+  const popover = screen.getByText(/no ice cream will actually be delivered/i);
+  expect(popover).toBeInTheDocument();
+
+  // popover disappears when we mouse out
+  await user.unhover(termsAndConditions);
+  expect(popover).not.toBeInTheDocument();
 });
