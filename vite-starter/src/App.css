@@ -5,3 +5,7 @@
 .blue {
   background-color: blue;
 }
+
+button:disabled {
+  background-color: grey;
+}
