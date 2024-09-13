@@ -2,17 +2,17 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [state, setState] = useState(false);
+  const [isBlue, setIsBlue] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
   return (
     <div>
       <button
-        className={state ? "blue" : "red"}
+        className={isBlue ? "blue" : "red"}
         disabled={disabled}
-        onClick={() => setState((prev) => !prev)}
+        onClick={() => setIsBlue((prev) => !prev)}
       >
-        Change to {state ? "red" : "blue"}
+        Change to {isBlue ? "red" : "blue"}
       </button>
       <div>
         <input
