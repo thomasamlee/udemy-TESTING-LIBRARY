@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2021",
+    "target": "ES2021",
     "jsx": "preserve",
-    "module": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "types": ["vitest/globals"],
     "allowJs": true,
     "checkJs": true,
