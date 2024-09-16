@@ -13,7 +13,7 @@ test("handles error for scoops and toppings routes", async () => {
     })
   );
 
-  render(<OrderEntry />);
+  render(<OrderEntry setOrderPhase={() => {}} />);
 
   const alerts = await screen.findAllByRole("alert");
 

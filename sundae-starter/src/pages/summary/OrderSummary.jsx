@@ -34,7 +34,7 @@ export default function OrderSummary({ setOrderPhase }) {
       <h2>Scoops: {formatCurrency(totals.scoops)}</h2>
       <ul>{scoopList}</ul>
       {toppingsDisplay}
-      <SummaryForm />
+      <SummaryForm setOrderPhase={setOrderPhase} />
     </div>
   );
 }
